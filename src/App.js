@@ -1,4 +1,5 @@
 import Map from './components/Map'
+import Loader from './components/Loader'
 import { useState, useEffect } from 'react'
 
 
@@ -18,13 +19,11 @@ function App() {
 
     fetchEvents()
 
-    console.log(eventData);
-
   }, [])
 
   return (
     <div>
-      <Map />
+      { !loading ? <Map eventData={eventData}/> : <Loader />}
     </div>
   );
 }
